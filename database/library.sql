@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2025 at 01:46 PM
+-- Generation Time: Oct 10, 2025 at 03:57 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -209,13 +209,13 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`member_id`, `first_name`, `last_name`, `email`) VALUES
-('M0007', 'Brian', 'Smith', 'brian7@library.com'),
 ('M001', 'James', 'Smith', 'james1@library.com'),
 ('M002', 'David', 'Wei', 'david2@library.com'),
 ('M003', 'Lucy', 'Ndegwa', 'lucy3@library.com'),
 ('M004', 'Chen', 'Wei', 'chen4@library.com'),
 ('M005', 'Lucy', 'Ali', 'lucy5@library.com'),
 ('M006', 'Sam', 'Wei', 'sam6@library.com'),
+('M007', 'Brian', 'Smith', 'brian7@library.com'),
 ('M008', 'Omar', 'Achieng', 'omar8@library.com'),
 ('M009', 'Carlos', 'Mworia', 'carlos9@library.com'),
 ('M010', 'Fatima', 'Mworia', 'fatima10@gmail.com'),
@@ -283,17 +283,6 @@ ALTER TABLE `borrow_records`
 --
 ALTER TABLE `members`
   ADD PRIMARY KEY (`member_id`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `borrow_records`
---
-ALTER TABLE `borrow_records`
-  ADD CONSTRAINT `borrow_records_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`),
-  ADD CONSTRAINT `borrow_records_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
