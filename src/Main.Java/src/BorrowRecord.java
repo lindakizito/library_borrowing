@@ -1,15 +1,15 @@
 import java.time.LocalDate;
 
 public class BorrowRecord {
-    private int recordId;
-    private int memberId;
-    private int bookId;
+    private String recordId;
+    private String memberId;
+    private String bookId;
     private LocalDate borrowDate;
     private LocalDate returnDate;
     private int daysBorrowed;
 
     // Constructor
-    public BorrowRecord(int recordId, int memberId, int bookId,
+    public BorrowRecord(String recordId, String memberId, String bookId,
                         LocalDate borrowDate, LocalDate returnDate, int daysBorrowed) {
         this.recordId = recordId;
         this.memberId = memberId;
@@ -20,15 +20,15 @@ public class BorrowRecord {
     }
 
     // Getters
-    public int getRecordId() {
+    public String getRecordId() {
         return recordId;
     }
 
-    public int getMemberId() {
+    public String getMemberId() {
         return memberId;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 

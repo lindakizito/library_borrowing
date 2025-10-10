@@ -1,11 +1,11 @@
 public class Member {
-    private int memberId;
+    private String memberId;
     private String firstName;
     private String lastName;
     private String email;
 
     // Constructor
-    public Member(int memberId, String firstName, String lastName, String email) {
+    public Member(String memberId, String firstName, String lastName, String email) {
         this.memberId = memberId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -13,7 +13,7 @@ public class Member {
     }
 
     // Getters
-    public int getMemberId() {
+    public String getMemberId() {
         return memberId;
     }
 

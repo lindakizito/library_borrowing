@@ -1,17 +1,17 @@
 public class Book {
-    private int bookId;
+    private String bookId;
     private String title;
     private String author;
     private String genre;
 
-    public Book(int bookId, String title, String author, String genre) {
+    public Book(String bookId, String title, String author, String genre) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.genre = genre;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
