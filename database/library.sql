@@ -82,7 +82,7 @@ CREATE TABLE `borrow_records` (
   `book_id` varchar(15) NOT NULL,
   `borrow_date` date NOT NULL,
   `return_date` date NOT NULL,
-  `days_borrwed` int(11) GENERATED ALWAYS AS (to_days(`return_date`) - to_days(`borrow_date`)) VIRTUAL
+  `days_borrowed` int(11) GENERATED ALWAYS AS (to_days(`return_date`) - to_days(`borrow_date`)) VIRTUAL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
