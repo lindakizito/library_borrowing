@@ -1,33 +1,33 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.Connection; //represents a connection to the database
+import java.sql.ResultSet; //stores results returned from the database
+import java.sql.Statement; //used to send sql queries
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        try {
+        try { //try block is used so if sth goes wrong, execution jumps to the catch
             // Connect to database
             Connection conn = DatabaseConnection.getConnection();
-            System.out.println("✅ Connection successful!\n");
+            System.out.println(" Connection successful!\n");
 
             // --- FETCH AND PRINT BOOKS ---
-            Statement stmt = conn.createStatement();
-            ResultSet rsBooks = stmt.executeQuery("SELECT * FROM books");
+            Statement stmt = conn.createStatement(); //creates a statement to send sql commands
+            ResultSet rsBooks = stmt.executeQuery("SELECT * FROM books"); //sends sql query to database and the result is stored in rsBooks
 
-            ArrayList<Book> books = new ArrayList<>();
-            while (rsBooks.next()) {
+            ArrayList<Book> books = new ArrayList<>(); //creates list to store objects
+            while (rsBooks.next()) { //rsBooks.next() moves to each row
                 String bookId = rsBooks.getString("book_id");
                 String title = rsBooks.getString("title");
                 String author = rsBooks.getString("author");
                 String genre = rsBooks.getString("genre");
 
-                Book book = new Book(bookId, title, author, genre);
-                books.add(book);
+                Book book = new Book(bookId, title, author, genre); //creates a book object
+                books.add(book); //adds it to the books list
             }
 
-            System.out.println("📚 BOOKS:");
-            for (Book b : books) {
+            System.out.println(" BOOKS:");
+            for (Book b : books) { //Uses Book’s toString() to print information
                 System.out.println(b);
             }
             System.out.println();
@@ -46,7 +46,7 @@ public class Main {
                 members.add(member);
             }
 
-            System.out.println("👤 MEMBERS:");
+            System.out.println(" MEMBERS:");
             for (Member m : members) {
                 System.out.println(m);
             }
@@ -60,7 +60,7 @@ public class Main {
                 String recordId = rsBorrow.getString("record_id");
                 String memberId = rsBorrow.getString("member_id");
                 String bookId = rsBorrow.getString("book_id");
-                LocalDate borrowDate = rsBorrow.getDate("borrow_date").toLocalDate();
+                LocalDate borrowDate = rsBorrow.getDate("borrow_date").toLocalDate(); //Converts SQL Date to LocalDate using .toLocalDate().
                 LocalDate returnDate = rsBorrow.getDate("return_date").toLocalDate();
                 int daysBorrowed = rsBorrow.getInt("days_borrowed");
 
@@ -68,19 +68,19 @@ public class Main {
                 borrowRecords.add(br);
             }
 
-            System.out.println("📖 BORROW RECORDS:");
+            System.out.println(" BORROW RECORDS:");
             for (BorrowRecord br : borrowRecords) {
                 System.out.println(br);
             }
 
-            // --- CLOSE RESOURCES ---
+            // --- CLOSE RESOURCES --- Properly closes ResultSets, Statement, and DB connection to avoid memory leaks
             rsBooks.close();
             rsMembers.close();
             rsBorrow.close();
             stmt.close();
             conn.close();
 
-        } catch (Exception e) {
+        } catch (Exception e) { //If any error occurs, prints stack trace for debugging
             e.printStackTrace();
         }
     }
