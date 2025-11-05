@@ -8,9 +8,10 @@ public class BorrowRecord {
     private LocalDate returnDate;
     private int daysBorrowed;
 
-    // Constructor
+    // Constructor Used to create a BorrowRecord object
     public BorrowRecord(String recordId, String memberId, String bookId,
                         LocalDate borrowDate, LocalDate returnDate, int daysBorrowed) {
+        //this.fieldName = parameter assigns values from arguments into the object’s fields
         this.recordId = recordId;
         this.memberId = memberId;
         this.bookId = bookId;
@@ -19,7 +20,7 @@ public class BorrowRecord {
         this.daysBorrowed = daysBorrowed;
     }
 
-    // Getters
+    // Getters each method returns its respective field.
     public String getRecordId() {
         return recordId;
     }
@@ -44,8 +45,8 @@ public class BorrowRecord {
         return daysBorrowed;
     }
 
-    // toString
-    @Override
+    // toString method
+    @Override //replaces the default Object.toString().
     public String toString() {
         return "BorrowRecord{" +
                 "recordId=" + recordId +
