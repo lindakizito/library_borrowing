@@ -1,3 +1,5 @@
+package model;
+
 public class Member { //this class  represents a person registered in the library.
     private String memberId;
     private String firstName;
@@ -30,10 +32,10 @@ public class Member { //this class  represents a person registered in the librar
         return email;
     }
 
-    // toString method --makes printing a Member object readable.
+    // toString method --makes printing a Model.Member object readable.
     @Override
     public String toString() {
-        return "Member{" +
+        return "Model.Member{" +
                 "memberId=" + memberId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

@@ -1,11 +1,13 @@
-public class Book { /*Defines a public class named Book
+package model;
+
+public class Book { /*Defines a public class named Model.Book
     this class models a BOOK object from our database*/
     private String bookId;
     private String title;
     private String author;
     private String genre;
 //private so only this class can directly access them
-    public Book(String bookId, String title, String author, String genre) { //this constructor is called when creating a new Book
+    public Book(String bookId, String title, String author, String genre) { //this constructor is called when creating a new Model.Book
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -30,7 +32,7 @@ public class Book { /*Defines a public class named Book
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Model.Book{" +
                 "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +

@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 
 public class BorrowRecord {
@@ -8,7 +10,7 @@ public class BorrowRecord {
     private LocalDate returnDate;
     private int daysBorrowed;
 
-    // Constructor Used to create a BorrowRecord object
+    // Constructor Used to create a Model.BorrowRecord object
     public BorrowRecord(String recordId, String memberId, String bookId,
                         LocalDate borrowDate, LocalDate returnDate, int daysBorrowed) {
         //this.fieldName = parameter assigns values from arguments into the object’s fields
@@ -48,7 +50,7 @@ public class BorrowRecord {
     // toString method
     @Override //replaces the default Object.toString().
     public String toString() {
-        return "BorrowRecord{" +
+        return "Model.BorrowRecord{" +
                 "recordId=" + recordId +
                 ", memberId=" + memberId +
                 ", bookId=" + bookId +
